@@ -1,0 +1,12 @@
+<%= link_to "Dowload posts CSV", posts_path(format: :csv) %>
+
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>

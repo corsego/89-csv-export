@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to "Dowload users CSV", users_path(format: :csv) %>
+
 <%= form_with url: import_users_path, method: :post do |form| %>
   <%= form.file_field :file, accept: ".csv" %>
   <%= form.button "Import" %>

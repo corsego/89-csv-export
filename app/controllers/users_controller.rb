@@ -9,6 +9,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.limit(10)
+    respond_to do |format|
+      format.html
+      format.csv do
+        filename = ['Users', Date.today.to_s].join(' ')
+        send_data User.to_csv(@users), filename:, content_type: 'text/csv'
+      end
+    end
   end
 end
